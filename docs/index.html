@@ -39,144 +39,259 @@
             font-size: 1.15em;
         }
         .results-list {
-            margin: 2em 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockhouse Analysis Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue/Grey */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #e74c3c; /* Red */
+            --background-light: #f4f7f6;
+            --text-dark: #333;
+            --text-light: #f9f9f9;
+            --border-color: #ddd;
+            --shadow-light: rgba(0, 0, 0, 0.1 );
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
             padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px var(--shadow-light);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 2.5em;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        ul {
             list-style: none;
+            padding: 0;
         }
-        .results-list li {
-            margin-bottom: 1.2em;
-            font-size: 1.13em;
+
+        ul li {
+            margin-bottom: 10px;
         }
+
         a {
-            color: #1976d2;
+            color: var(--secondary-color);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.3s ease;
         }
+
         a:hover {
-            color: #0d47a1;
+            color: var(--accent-color);
             text-decoration: underline;
         }
-        .footer {
-            margin-top: 3em;
-            color: #888;
-            font-size: 1em;
-            text-align: center;
+
+        .project-description p {
+            margin-bottom: 15px;
         }
-        .plot-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            justify-content: center;
+
+        .project-description ul {
+            list-style: disc; /* Use disc for bullet points */
+            margin-left: 20px;
+        }
+
+        .plot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             margin-top: 20px;
         }
-        .plot-item {
+
+        .plot-card {
+            background-color: #f9f9f9;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
             text-align: center;
-            border: 1px solid #e3e3e3;
-            padding: 16px;
-            border-radius: 12px;
-            background-color: #fafbfc;
-            box-shadow: 0 2px 8px rgba(30, 64, 175, 0.04);
-            transition: box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
         }
-        .plot-item:hover {
-            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.10);
+
+        .plot-card:hover {
+            transform: translateY(-5px);
         }
-        .plot-item img {
-            max-width: 220px;
+
+        .plot-card img {
+            max-width: 100%;
             height: auto;
-            border-radius: 6px;
-            box-shadow: 0 1px 4px rgba(30, 64, 175, 0.07);
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
-        .plot-item p {
-            margin-top: 10px;
-            font-size: 1em;
-            color: #444;
+
+        .plot-card p {
+            font-size: 0.9em;
+            color: #555;
+            margin: 0;
         }
-        .back-to-top {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            background: #1976d2;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            font-size: 1.7em;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(30, 64, 175, 0.15);
-            display: none;
-            z-index: 100;
-            transition: background 0.2s;
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #777;
+            font-size: 0.9em;
+            border-top: 1px solid var(--border-color);
         }
-        .back-to-top:hover {
-            background: #0d47a1;
-        }
-        @media (max-width: 600px) {
-            .container {
-                padding: 16px 6px 16px 6px;
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
             }
-            h1 {
+            .container {
+                margin: 20px auto;
+                padding: 15px;
+            }
+            h2 {
                 font-size: 1.5em;
             }
-            .plot-item img {
-                max-width: 100px;
+            .plot-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Blockhouse Analysis Project</h1>
+    </div>
+
+    <div class="container">
+        <section class="project-description">
+            <h2>Project Overview</h2>
+            <p>Welcome to the **Blockhouse Market Impact & Optimal Allocation Project**! This initiative focuses on advanced quantitative analysis to model market impact and optimize trading strategies. Our goal is to minimize trading costs by understanding and predicting the temporary price impact of large orders and formulating an optimal execution algorithm.</p>
+            <p>Key aspects of this project include:</p>
+            <ul>
+                <li><strong>Goal:</strong> Minimize trading impact by modeling and optimizing order execution across multiple stocks and time periods.</li>
+                <li><strong>Data:</strong> Utilizes real and synthetic order book data for 3 stocks (CRWV, FROG, SOUN) at 1-minute intervals.</li>
+                <li><strong>Deliverables:</strong> Provides an interactive analysis report, professional plots, and detailed written explanations in PDF format.</li>
+            </ul>
+            <p>All results, code, and documentation are provided below for easy access and review.</p>
+        </section>
+
+        <section class="main-report">
+            <h2>Main Analysis Report</h2>
+            <ul>
+                <li>
+                    <strong>Full Analysis Report (HTML):</strong>  
+
+                    <a href="impact_modeling_analysis_output.html" target="_blank">View Detailed Analysis Report</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="plots-section">
+            <h2>Generated Plots & Visualizations</h2>
+            <div class="plot-grid">
+                <div class="plot-card">
+                    <img src="output/CRWV_impact_analysis.png" alt="CRWV Impact Analysis">
+                    <p>CRWV Temporary Impact Analysis</p>
+                </div>
+                <div class="plot-card">
+                    <img src="output/FROG_impact_analysis.png" alt="FROG Impact Analysis">
+                    <p>FROG Temporary Impact Analysis</p>
+                </div>
+                <div class="plot-card">
+                    <img src="output/SOUN_impact_analysis.png" alt="SOUN Impact Analysis">
+                    <p>SOUN Temporary Impact Analysis</p>
+                </div>
+                <div class="plot-card">
+                    <img src="output/optimal_allocation_example.png" alt="Optimal Allocation Example">
+                    <p>Optimal Order Allocation Example</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="supplementary-docs">
+            <h2>Supplementary Documents</h2>
+            <ul>
+                <li>
+                    <a href="Modeling_the_Temporary_Impact_Function_g_t_x.pdf" target="_blank"><strong>Modeling the Temporary Impact Function g_t(x)</strong> (PDF)</a>  
+
+                    <span>Detailed explanation of the impact function modeling, with data-driven insights and visualizations.</span>
+                </li>
+                <li>
+                    <a href="Mathematical_Framework_for_Optimal_Order_Allocation.pdf" target="_blank"><strong>Mathematical Framework for Optimal Order Allocation</strong> (PDF)</a>  
+
+                    <span>Mathematical formulation and solution approach for optimal execution across trading periods.</span>
+                </li>
+                <li>
+                    <a href="Modeling_Temporary_Impact_and_Optimal_Order_Allocation.pdf" target="_blank"><strong>Modeling Temporary Impact and Optimal Order Allocation (Presentation)</strong> (PDF)</a>  
+
+                    <span>A concise overview of the project, key findings, and methodologies.</span>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Blockhouse Analysis &mdash; Professional Implementation
+    </div>
+
     <script>
+        // Simple JavaScript for potential future interactivity or analytics
         document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scroll for anchor links
+            console.log('Blockhouse Analysis Project page loaded successfully.');
+            // Example: Smooth scroll for anchor links (if any)
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
-            });
-            // Back to Top button
-            const btn = document.createElement('button');
-            btn.className = 'back-to-top';
-            btn.innerHTML = '↑';
-            btn.title = 'Back to Top';
-            document.body.appendChild(btn);
-            window.addEventListener('scroll', function() {
-                btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-            });
-            btn.addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
-                <li><strong>Data:</strong> Real and synthetic order book data for 3 stocks, 1-minute intervals.</li>
-                <li><strong>Deliverables:</strong> Interactive analysis report, professional plots, and detailed written explanations.</li>
-            </ul>
-            <p>All results, code, and documentation are provided below for easy access and review.</p>
-        </div>
-        <ul class="results-list">
-            <li>
-                <strong>Full Analysis Report (HTML):</strong><br>
-                <a href="impact_modeling_analysis_output.html" target="_blank">View Analysis Report</a>
-            </li>
-            <li>
-                <strong>Generated Plots & Visualizations:</strong><br>
-                <div class="plot-container">
-                    <div class="plot-item">
-                        <img src="output/CRWV_impact_analysis.png" alt="CRWV Impact Analysis">
-                        <p>CRWV Impact Analysis</p>
-                    </div>
-                    <div class="plot-item">
-                        <img src="output/FROG_impact_analysis.png" alt="FROG Impact Analysis">
-                        <p>FROG Impact Analysis</p>
-                    </div>
-                    <div class="plot-item">
-                        <img src="output/SOUN_impact_analysis.png" alt="SOUN Impact Analysis">
-                        <p>SOUN Impact Analysis</p>
-                    </div>
-                    <div class="plot-item">
-                        <img src="output/optimal_allocation_example.png" alt="Optimal Allocation Example">
-                        <p>Optimal Allocation Example</p>
-                    </div>
-                </div>
+</body>
+</html>
             </li>
         </ul>
 
