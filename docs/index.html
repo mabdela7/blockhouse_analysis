@@ -12,20 +12,31 @@
             padding: 0;
         }
         .container {
-            max-width: 800px;
-            margin: 40px auto;
+    <style>
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #e3f2fd 0%, #f7f9fa 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 48px auto;
             background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            padding: 32px 24px 24px 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(30, 64, 175, 0.10);
+            padding: 40px 32px 32px 32px;
         }
         h1 {
-            color: #1a237e;
+            color: #0d47a1;
             margin-bottom: 0.5em;
+            font-size: 2.3em;
+            letter-spacing: 1px;
         }
         .desc {
-            color: #444;
+            color: #333;
             margin-bottom: 2em;
+            font-size: 1.15em;
         }
         .results-list {
             margin: 2em 0;
@@ -34,54 +45,108 @@
         }
         .results-list li {
             margin-bottom: 1.2em;
-            font-size: 1.1em;
+            font-size: 1.13em;
         }
         a {
             color: #1976d2;
             text-decoration: none;
+            transition: color 0.2s;
         }
         a:hover {
+            color: #0d47a1;
             text-decoration: underline;
         }
         .footer {
             margin-top: 3em;
             color: #888;
-            font-size: 0.95em;
+            font-size: 1em;
             text-align: center;
         }
         .plot-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 24px;
             justify-content: center;
             margin-top: 20px;
         }
         .plot-item {
             text-align: center;
-            border: 1px solid #eee;
-            padding: 10px;
-            border-radius: 8px;
-            background-color: #fff;
+            border: 1px solid #e3e3e3;
+            padding: 16px;
+            border-radius: 12px;
+            background-color: #fafbfc;
+            box-shadow: 0 2px 8px rgba(30, 64, 175, 0.04);
+            transition: box-shadow 0.2s;
+        }
+        .plot-item:hover {
+            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.10);
         }
         .plot-item img {
-            max-width: 100%;
+            max-width: 220px;
             height: auto;
-            border-radius: 4px;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(30, 64, 175, 0.07);
         }
         .plot-item p {
             margin-top: 10px;
-            font-size: 0.9em;
-            color: #555;
+            font-size: 1em;
+            color: #444;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 1.7em;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(30, 64, 175, 0.15);
+            display: none;
+            z-index: 100;
+            transition: background 0.2s;
+        }
+        .back-to-top:hover {
+            background: #0d47a1;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 16px 6px 16px 6px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .plot-item img {
+                max-width: 100px;
+            }
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Blockhouse Analysis Results</h1>
-        <div class="desc">
-            <p><strong>Welcome to the Blockhouse Market Impact & Optimal Allocation Project!</strong></p>
-            <ul style="margin-top: 1em; margin-bottom: 1em;">
-                <li><strong>Goal:</strong> Minimize trading impact by modeling and optimizing order execution across multiple stocks and time periods.</li>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            // Back to Top button
+            const btn = document.createElement('button');
+            btn.className = 'back-to-top';
+            btn.innerHTML = '↑';
+            btn.title = 'Back to Top';
+            document.body.appendChild(btn);
+            window.addEventListener('scroll', function() {
+                btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+            btn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
                 <li><strong>Data:</strong> Real and synthetic order book data for 3 stocks, 1-minute intervals.</li>
                 <li><strong>Deliverables:</strong> Interactive analysis report, professional plots, and detailed written explanations.</li>
             </ul>
