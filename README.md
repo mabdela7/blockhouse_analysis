@@ -6,10 +6,7 @@ This project analyzes temporary market impact and formulates an optimal order al
 
 - `blockhouse_analysis.py`: Main Python script for data loading, impact modeling, and optimal execution.
 - `impact_modeling_analysis.ipynb`: Jupyter Notebook containing the detailed analysis and visualizations.
-- `data/`: Contains raw and extracted market data for CRWV, FROG, and SOUN tickers. Data is organized in subfolders for each ticker:
-  - `data/CRWV/extracted/CRWV/`
-  - `data/FROG/extracted/`
-  - `data/SOUN/extracted/`
+- `data/`: Contains raw and extracted market data for CRWV, FROG, and SOUN tickers.
 - `output/`: Stores generated plots and analysis results.
 - `docs/`: Contains the HTML report and supplementary PDF documents.
 
@@ -58,6 +55,6 @@ This project analyzes temporary market impact and formulates an optimal order al
 
 ## Contact
 
-For any questions or further discussion, please contact [Mohamed Abdelaziz /Mabdela1@students.kennesaw.edu/].
+For any questions or further discussion, please contact [Your Name/Email/LinkedIn].
 
 
