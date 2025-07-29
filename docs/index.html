@@ -13,17 +13,139 @@
         }
         .container {
     <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockhouse Analysis Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
         body {
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(120deg, #e3f2fd 0%, #f7f9fa 100%);
+            min-height: 100vh;
             margin: 0;
             padding: 0;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #e3f2fd 0%, #f7f9fa 100%);
+            display: flex;
+            flex-direction: column;
         }
-        .container {
+        .main-bg {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 0 0 0;
+        }
+        .glass-card {
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 8px 32px rgba(44,62,80,0.12);
+            border-radius: 24px;
+            padding: 40px 36px 32px 36px;
             max-width: 900px;
-            margin: 48px auto;
-            background: #fff;
+            width: 100%;
+            margin: 0 16px;
+            backdrop-filter: blur(8px);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .header h1 {
+            font-size: 2.7em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0 0 8px 0;
+            letter-spacing: 1px;
+        }
+        .header p {
+            color: #3498db;
+            font-size: 1.15em;
+            margin: 0;
+        }
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 18px;
+            margin-top: 32px;
+            letter-spacing: 0.5px;
+        }
+        .desc {
+            color: #333;
+            font-size: 1.13em;
+            margin-bottom: 18px;
+        }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 18px;
+        }
+        ul li {
+            margin-bottom: 8px;
+            font-size: 1.07em;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #e74c3c;
+            text-decoration: underline;
+        }
+        .plot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin-top: 18px;
+            margin-bottom: 18px;
+        }
+        .plot-card {
+            background: rgba(244,247,246,0.95);
             border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+            padding: 18px 12px 12px 12px;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .plot-card:hover {
+            box-shadow: 0 4px 24px rgba(44,62,80,0.13);
+        }
+        .plot-card img {
+            max-width: 100%;
+            height: 160px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background: #e3f2fd;
+        }
+        .plot-card p {
+            font-size: 1em;
+            color: #555;
+            margin: 0;
+        }
+        .supplementary {
+            background: #e3f2fd;
+            border-radius: 12px;
+            padding: 18px 18px 10px 18px;
+            margin-top: 32px;
+        }
+        .footer {
+            text-align: center;
+            padding: 24px 0 12px 0;
+            color: #888;
+            font-size: 1em;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 700px) {
+            .glass-card {
+                padding: 18px 6px 18px 6px;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .plot-card img {
+                height: 90px;
+            }
+        }
+    </style>
             box-shadow: 0 4px 24px rgba(30, 64, 175, 0.10);
             padding: 40px 32px 32px 32px;
         }
