@@ -15,29 +15,35 @@
             line-height: 1.6;
         }
         .header {
-            background: linear-gradient(to right, #1a237e, #283593);
-            color: #fff;
-            padding: 20px 0;
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 8px 32px rgba(44,62,80,0.12);
+            border-radius: 24px;
+            padding: 32px 24px 18px 24px;
+            max-width: 900px;
+            margin: 40px auto 0 auto;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            backdrop-filter: blur(8px);
         }
         .header h1 {
             margin: 0;
             font-size: 2.5em;
             font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: 1px;
         }
         .header p {
-            margin: 5px 0 0;
-            font-size: 1.1em;
-            opacity: 0.9;
+            color: #3498db;
+            font-size: 1.15em;
+            margin: 0;
         }
         .container {
             max-width: 900px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            padding: 35px;
+            margin: 0 auto 40px auto;
+            background: rgba(255,255,255,0.92);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.10);
+            padding: 40px 36px 32px 36px;
+            backdrop-filter: blur(6px);
         }
         h2 {
             color: #1a237e;
@@ -45,7 +51,9 @@
             padding-bottom: 10px;
             margin-top: 30px;
             margin-bottom: 20px;
-            font-size: 1.8em;
+            font-size: 1.7em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         .section-intro {
             font-size: 1.1em;
@@ -71,46 +79,46 @@
         }
         a:hover {
             text-decoration: underline;
-            color: #1565c0;
-        }
-        .footer {
-            margin-top: 50px;
-            color: #777;
-            font-size: 0.9em;
-            text-align: center;
-            padding-bottom: 20px;
         }
         .plot-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
             margin-top: 30px;
             justify-content: center;
         }
         .plot-item {
             text-align: center;
-            border: 1px solid #e0e0e0;
-            padding: 15px;
-            border-radius: 10px;
-            background-color: #fdfdfd;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            background: rgba(244,247,246,0.95);
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+            padding: 18px 12px 12px 12px;
+            transition: box-shadow 0.2s;
         }
         .plot-item:hover {
-            transform: translateY(-5px);
+            box-shadow: 0 4px 24px rgba(44,62,80,0.13);
         }
         .plot-item img {
             max-width: 100%;
-            height: auto;
-            border-radius: 6px;
+            height: 160px;
+            object-fit: contain;
+            border-radius: 8px;
             margin-bottom: 10px;
+            background: #e3f2fd;
             box-shadow: 0 1px 4px rgba(0,0,0,0.1);
         }
         .plot-item p {
             margin: 0;
-            font-size: 0.95em;
+            font-size: 1em;
             color: #555;
             font-weight: 500;
+        }
+        .plot-item .caption {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.97em;
+            color: #888;
+            font-weight: 400;
         }
         .document-item {
             background: #e3f2fd;
@@ -126,7 +134,26 @@
             display: block;
             margin-top: 5px;
             color: #444;
-            font-size: 0.95em;
+            font-size: 0.98em;
+        }
+        .footer {
+            margin-top: 50px;
+            color: #888;
+            font-size: 1em;
+            text-align: center;
+            padding-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 700px) {
+            .header, .container {
+                padding: 18px 6px 18px 6px;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .plot-item img {
+                height: 90px;
+            }
         }
     </style>
 </head>
@@ -146,33 +173,31 @@
             </ul>
             <p>Explore the comprehensive results, underlying code, and extensive documentation provided below.</p>
         </div>
-
-        <h2>Analysis Reports & Interactive Tools</h2>
-        <ul class="results-list">
-            <li>
-                <strong>Full Interactive Analysis Report (HTML):</strong><br>
-                <a href="impact_modeling_analysis_output.html" target="_blank">View Detailed Analysis Report</a>
-                <span>Dive into the complete analysis, including methodologies, findings, and interactive visualizations.</span>
-            </li>
-        </ul>
-
-        <h2>Key Visualizations & Plots</h2>
-        <div class="plot-container">
-            <div class="plot-item">
-                <img src="output/CRWV_impact_analysis.png" alt="CRWV Impact Analysis">
-                <p>CRWV Impact Analysis</p>
-            </div>
-            <div class="plot-item">
-                <img src="output/FROG_impact_analysis.png" alt="FROG Impact Analysis">
-                <p>FROG Impact Analysis</p>
-            </div>
-            <div class="plot-item">
-                <img src="output/SOUN_impact_analysis.png" alt="SOUN Impact Analysis">
-                <p>SOUN Impact Analysis</p>
-            </div>
-            <div class="plot-item">
-                <img src="output/optimal_allocation_example.png" alt="Optimal Allocation Example">
-                <p>Optimal Allocation Example</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+            <div>
+                <h2>Key Visualizations & Plots</h2>
+                <div class="plot-container" style="margin-top:0;">
+                    <div class="plot-item">
+                        <img src="../output/CRWV_impact_analysis.png" alt="CRWV Impact Analysis">
+                        <p>CRWV Impact Analysis</p>
+                        <span style="font-size:0.97em;color:#888;">Shows the fitted power-law impact curve for CRWV, visualizing slippage vs. order volume.</span>
+                    </div>
+                    <div class="plot-item">
+                        <img src="../output/FROG_impact_analysis.png" alt="FROG Impact Analysis">
+                        <p>FROG Impact Analysis</p>
+                        <span style="font-size:0.97em;color:#888;">Demonstrates market impact modeling for FROG using advanced curve fitting.</span>
+                    </div>
+                    <div class="plot-item">
+                        <img src="../output/SOUN_impact_analysis.png" alt="SOUN Impact Analysis">
+                        <p>SOUN Impact Analysis</p>
+                        <span style="font-size:0.97em;color:#888;">Highlights SOUN's temporary impact function and observed data distribution.</span>
+                    </div>
+                    <div class="plot-item">
+                        <img src="../output/optimal_allocation_example.png" alt="Optimal Allocation Example">
+                        <p>Optimal Allocation Example</p>
+                        <span style="font-size:0.97em;color:#888;">Illustrates the optimal order allocation strategy minimizing execution costs.</span>
+                    </div>
+                </div>
             </div>
         </div>
 
