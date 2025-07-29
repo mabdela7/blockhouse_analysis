@@ -58,6 +58,6 @@ This project analyzes temporary market impact and formulates an optimal order al
 
 ## Contact
 
-For any questions or further discussion, please contact [Your Name/Email/LinkedIn].
+For any questions or further discussion, please contact [Mohamed Abdelaziz /Mabdela1@students.kennesaw.edu/].
 
 
